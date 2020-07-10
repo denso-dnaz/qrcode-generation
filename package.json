@@ -1,10 +1,14 @@
 {
-  "dependencies": {
-    "express": "^4.17.1",
-    "qr-image": "^3.2.0"
-  },
   "name": "qrcode",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "qr-image": "^3.2.0"
+  }
+  
 }
