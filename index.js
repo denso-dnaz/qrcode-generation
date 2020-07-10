@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 var express = require('express');
 var app = express();
 const qr = require('qr-image')
@@ -9,5 +11,5 @@ app.get('/endpoint', function(req, res) {
     code.pipe(res)
 });
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
 console.log("node express app started at http://localhost:3000");
