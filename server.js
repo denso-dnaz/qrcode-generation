@@ -39,8 +39,8 @@ app.get('/endpoint', async (req, res) => {
   
   await fs.writeFileSync("_qrcode.png", base64Data, 'base64');
 
-  const width = 160
-  const height = 160
+  const width = 120
+  const height = 120
 
   const canvas = createCanvas(width, height)
   const context = canvas.getContext('2d')
@@ -48,24 +48,24 @@ app.get('/endpoint', async (req, res) => {
   context.fillStyle = '#fff'
   context.fillRect(0, 0, width, height)
 
-  context.font = 'bold 16pt Menlo'
+  context.font = 'bold 14pt Menlo'
   context.textAlign = 'center'
   context.textBaseline = 'top'
 
   context.fillStyle = '#000'
-  context.font = 'bold 18pt Menlo'
-  context.fillText(strings[1], 80, 10)
+  context.font = 'bold 14pt Menlo'
+  context.fillText(strings[1], 60, 5)
 
   context.fillStyle = '#000'
-  context.font = '10pt Menlo'
-  context.fillText(strings[0], 80, 100)
+  context.font = '7pt Roboto'
+  context.fillText(strings[0], 60, 80)
 
   context.fillStyle = '#000'
-  context.font = 'bold 16pt Menlo'
-  context.fillText(getMonth(), 80, 130)
+  context.font = 'bold 14pt Menlo'
+  context.fillText(getMonth(), 60, 95)
 
   loadImage('./_qrcode.png').then(image => {
-    context.drawImage(image, 50, 40, 60, 60)
+    context.drawImage(image, 40, 35, 40, 40)
     const buffer = canvas.toBuffer('image/png')
     fs.writeFileSync('./_etiqueta.png', buffer)
     res.type("image/png")
